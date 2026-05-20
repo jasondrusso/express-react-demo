@@ -15,9 +15,12 @@ function MyApp() {
     }, []);
 
     return (
-        <div>
-            { loading ? 'Loading...' : <ul>{data.map(e => <li>{e}</li>)}</ul> }
-        </div>
+        <>
+            <div><h3>List of Users:</h3></div>
+            <div>
+                { loading ? 'Loading...' : <ul>{data.map(e => <li>{e}</li>)}</ul> }
+            </div>
+        </>
     );
 }
 
