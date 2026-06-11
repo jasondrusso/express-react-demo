@@ -8,7 +8,8 @@ function MyApp() {
         fetch('http://localhost:8080/users')
             .then(res => res.json())
             .then(data => {
-                const names: string[] = data['users'].map(x => x['name']);
+                const names: string[] = 
+                    data['users'].map((x: {[key: string]: object}) => x['name']);
                 setData(names);
                 setLoading(false);
             });
