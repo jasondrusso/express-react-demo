@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "typescript",
+			"tsconfig": "server/tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build",
+			"label": "tsc: build - server/tsconfig.json"
+		},
+        {
+            "type": "npm",
+            "script": "test",
+            "label": "Run ExpressJS Project Tests",
+            "detail": "Run test suites for the ExpressJS Project",
+			"path": "/server"
+        }
+	]
+}
