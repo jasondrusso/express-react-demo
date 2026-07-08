@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const db = require('../mysqldb');
+const db = require('../db/mysqldb');
 
 // Middleware specific to this router
 router.use((req, res, next) => {

@@ -1,5 +1,5 @@
 describe("A suite", function() {
-    it("contains a space with an expectation", function() {
+    it("Jasmine sanity check", function() {
         expect(true).toBe(true);
     });
 });

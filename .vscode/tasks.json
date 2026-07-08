@@ -2,18 +2,20 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"group": "build",
 			"type": "typescript",
 			"tsconfig": "server/tsconfig.json",
 			"problemMatcher": [
 				"$tsc"
 			],
-			"group": "build",
-			"label": "tsc: build - server/tsconfig.json"
+			"label": "Compile ExpressJS Server Typescript",
+			"detail": "Compile the Typescript files for the ExpressJS API Server Project"
 		},
         {
+			"group": "test",
             "type": "npm",
             "script": "test",
-            "label": "Run ExpressJS Project Tests",
+            "label": "Test ExpressJS Server",
             "detail": "Run test suites for the ExpressJS Project",
 			"path": "/server"
         }
