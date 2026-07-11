@@ -5,25 +5,46 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Express Server",
             "type": "node",
             "request": "launch",
-            "name": "Launch Express Server",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/server/src/app.js"
         },
         {
+            "name": "Launch React Client",
             "type": "node",
             "request": "launch",
-            "name": "Launch React Client",
             "runtimeArgs": [ "run", "dev" ],
             "runtimeExecutable": "npm",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}/client/my-app",
+            "program": "${workspaceFolder}/client/my-app",
             "skipFiles": [
                 "<node_internals>/**"
             ]
+        },
+        {
+            "name": "Debug Server Jasmine Tests",
+            "type": "node",
+            "program": "${workspaceFolder}/server/node_modules/jasmine/bin/jasmine.js",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/server",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+
+        },
+        {
+            "name": "Debug Jasmine Current File",
+            "type": "node",
+            "program": "${workspaceFolder}/server/node_modules/jasmine/bin/jasmine.js",
+            "args": ["${workspaceFolder}/${relativeFileDirname}/${fileBasenameNoExtension}.js"],
+            "request": "launch",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
