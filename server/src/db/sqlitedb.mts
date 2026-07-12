@@ -24,13 +24,16 @@ function runQuery(stmt: StatementSync, params: any) {
         db.open();
     }
 
-    var results: Promise<Record<string, SQLInputValue.SQLOutputValue>> = 
-            new Promise((resolve, reject) => {
-                stmt.all(params);
-                // db.close();
-            });
-
-    return results;
+    return new Promise((resolve, reject) => {
+        try {
+            if (params)
+                resolve(stmt.all(params));
+            else
+                resolve(stmt.all());
+        } catch (err) {
+            reject(err);
+        }
+    });
 }
 
 export { listAllUsers, getUser };
