@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/server/src/app.js"
+            "program": "${workspaceFolder}/server/src/app.js",
+            "cwd": "${workspaceFolder}/server"
         },
         {
             "name": "Launch React Client",
@@ -23,7 +24,8 @@
             "program": "${workspaceFolder}/client/my-app",
             "skipFiles": [
                 "<node_internals>/**"
-            ]
+            ],
+            "cwd": "${workspaceFolder}/client/my-app"
         },
         {
             "name": "Debug Server Jasmine Tests",

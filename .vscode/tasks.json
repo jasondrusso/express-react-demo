@@ -5,10 +5,14 @@
 			"group": "build",
 			"type": "typescript",
 			"tsconfig": "server/tsconfig.json",
-			"problemMatcher": [
-				"$tsc"
-			],
-			"label": "Compile ExpressJS Server Typescript",
+			"problemMatcher": [ "$tsc" ],
+			"label": "Compile ExpressJS Server Typescript using project TSC command."		},
+		{
+			"group": "build",
+			"type": "shell",
+			"command": "tsc --project ./server/tsconfig.json",
+			"problemMatcher": [ "$tsc" ],
+			"label": "Compile ExpressJS Server Typescript using system TSC command.",
 			"detail": "Compile the Typescript files for the ExpressJS API Server Project"
 		},
         {

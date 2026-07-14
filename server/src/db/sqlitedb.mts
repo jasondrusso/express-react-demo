@@ -1,12 +1,13 @@
-import type SQLInputValue from 'node:sqlite';
+import dotenv from 'dotenv';
 import type { StatementSync } from 'node:sqlite';
 import { DatabaseSync } from 'node:sqlite';
 
-const db = new DatabaseSync('../data/sample.sqlite',
-    {
-        readOnly: false
-    }
-);
+dotenv.config();
+// const dbPath = `${process.env.SQLITE_PATH}`;
+const dbPath = '../data/sample.sqlite';
+console.log("Opening database at " + dbPath);
+
+const db = new DatabaseSync(dbPath, { readOnly: false });
 
 const stmtGetAllUsers = db.prepare('select * from users');
 const stmtGetUserById = db.prepare('select * from users where id = ?');
