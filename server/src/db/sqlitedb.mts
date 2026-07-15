@@ -1,9 +1,6 @@
-import dotenv from 'dotenv';
 import type { StatementSync } from 'node:sqlite';
 import { DatabaseSync } from 'node:sqlite';
 
-dotenv.config();
-// const dbPath = `${process.env.SQLITE_PATH}`;
 const dbPath = '../data/sample.sqlite';
 console.log("Opening database at " + dbPath);
 
