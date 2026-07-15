@@ -8,13 +8,23 @@ const db = new DatabaseSync(dbPath, { readOnly: false });
 
 const stmtGetAllUsers = db.prepare('select * from users');
 const stmtGetUserById = db.prepare('select * from users where id = ?');
+const stmtGetAllProducts = db.prepare('select * from products');
+const stmtGetProductsById = db.prepare('select * from products where id = ?');
 
-function listAllUsers() {
+function getAllUsers() {
     return runQuery(stmtGetAllUsers, null);
 }
 
 function getUser(id: number) {
     return runQuery(stmtGetUserById, id);
+}
+
+function getAllProducts() {
+    return runQuery(stmtGetAllProducts, null);
+}
+
+function getProduct(id: number) {
+    return runQuery(stmtGetProductsById, id);
 }
 
 function runQuery(stmt: StatementSync, params: any) {
@@ -34,4 +44,4 @@ function runQuery(stmt: StatementSync, params: any) {
     });
 }
 
-export { listAllUsers, getUser };
+export { getAllUsers, getUser, getAllProducts, getProduct };

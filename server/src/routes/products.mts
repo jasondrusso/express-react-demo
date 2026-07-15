@@ -1,5 +1,7 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+import '../../dist/db/sqlitedb.js';
+
+const router = Router();
 
 // Define routes
 router.get('/', (req, res) => {
@@ -10,4 +12,8 @@ router.get('/:id', (req, res) => {
     res.send(`Product details for ID: ${req.params.id}`);
 });
 
-module.exports = router;
+router.get('/user/:userId', (req, res) => {
+    
+});
+
+export { router };

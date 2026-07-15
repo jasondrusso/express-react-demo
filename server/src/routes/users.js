@@ -13,8 +13,8 @@ router.use((req, res, next) => {
 // Define routes
 router.get('/', async (req, res, next) => {
     try {
-        let resultElements = await db.listAllUsers();
-        res.status(200).json({ users: resultElements });
+        let result = await db.getAllUsers();
+        res.status(200).json({ users: result });
     } catch (e) {
         res.status(401).send(`Error: ${e}`);
     }
@@ -27,11 +27,6 @@ router.get('/:id', async (req, res) => {
     } catch (e) {
         res.status(401).send(`Error: ${e}`);
     }
-});
-
-
-router.get('/:userId/books/:bookId', (req, res) => {
-    res.send(`User ID: ${req.params.userId}, Book Id: ${req.params.bookId}`);
 });
 
 module.exports = router;
