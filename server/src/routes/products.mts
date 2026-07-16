@@ -1,12 +1,13 @@
 import { Router } from 'express';
-import { getAllProducts, getProduct } from '../db/sqlitedb.mjs';
+import { ProductData } from '../db/sqlitedb.mjs';
 
 const router = Router();
+const productData = new ProductData();
 
 // Define routes
 router.get('/', async (req, res) => {
     try {
-        let results = await getAllProducts();
+        let results = await productData.getAllProducts();
         res.status(200).json({ products: results });
     } catch (e) {
         res.status(401).send(`Error ${e}`);
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         let productId: number = parseInt(req.params.id);
-        let results = await getProduct(productId);
+        let results = await productData.getProduct(productId);
         res.status(200).json({ products: results });
     } catch (e) {
         res.status(401).send(`Error ${e}`);

@@ -11,20 +11,24 @@ const stmtGetUserById = db.prepare('select * from users where id = ?');
 const stmtGetAllProducts = db.prepare('select * from products');
 const stmtGetProductsById = db.prepare('select * from products where id = ?');
 
-function getAllUsers() {
-    return runQuery(stmtGetAllUsers, null);
+class UserData {
+    public getAllUsers() {
+        return runQuery(stmtGetAllUsers, null);
+    }
+
+    public getUser(id: number) {
+        return runQuery(stmtGetUserById, id);
+    }
 }
 
-function getUser(id: number) {
-    return runQuery(stmtGetUserById, id);
-}
+class ProductData {
+    public getAllProducts() {
+        return runQuery(stmtGetAllProducts, null);
+    }
 
-function getAllProducts() {
-    return runQuery(stmtGetAllProducts, null);
-}
-
-function getProduct(id: number) {
-    return runQuery(stmtGetProductsById, id);
+    public getProduct(id: number) {
+        return runQuery(stmtGetProductsById, id);
+    }
 }
 
 function runQuery(stmt: StatementSync, params: any) {
@@ -44,4 +48,4 @@ function runQuery(stmt: StatementSync, params: any) {
     });
 }
 
-export { getAllUsers, getUser, getAllProducts, getProduct };
+export { UserData, ProductData };

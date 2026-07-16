@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// const db = require('../db/mysqldb');
-const db = require('../db/sqlitedb.mts');
+const db = require('../db/sqlitedb.mjs');
 
 // Middleware specific to this router
 router.use((req, res, next) => {
@@ -13,7 +12,7 @@ router.use((req, res, next) => {
 // Define routes
 router.get('/', async (req, res, next) => {
     try {
-        let result = await db.getAllUsers();
+        let result = await db.UserData.getAllUsers();
         res.status(200).json({ users: result });
     } catch (e) {
         res.status(401).send(`Error: ${e}`);
@@ -22,7 +21,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        let result = await db.getUser(req.params.id);
+        let result = await db.UserData.getUser(req.params.id);
         res.status(200).json({ users: result });
     } catch (e) {
         res.status(401).send(`Error: ${e}`);
