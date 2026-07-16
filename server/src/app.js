@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const usersRouter = require('./routes/users');
-const productsRouter = require('./routes/products');
+const productsModule = require('./routes/products.mjs');
 
 const app = express();
 const port = 8080;
@@ -9,7 +9,7 @@ const port = 8080;
 // Use the routers
 app.use(cors());
 app.use('/users', usersRouter);
-app.use('/products', productsRouter);
+app.use('/products', productsModule.router);
 
 // Define a route for GET requests to the root URL
 app.get('/', (req, res) => {
